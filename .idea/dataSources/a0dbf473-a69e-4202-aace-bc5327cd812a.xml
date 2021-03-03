@@ -1075,38 +1075,122 @@
       <ObjectGrants>ALL PRIVILEGES!
 </ObjectGrants>
     </user>
-    <table id="342" parent="13" name="categories"/>
-    <table id="343" parent="13" name="user"/>
-    <column id="344" parent="342" name="category_id">
+    <table id="342" parent="13" name="advertisement"/>
+    <table id="343" parent="13" name="advertisements"/>
+    <table id="344" parent="13" name="categories"/>
+    <table id="345" parent="13" name="user"/>
+    <column id="346" parent="342" name="advertisemet_id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="345" parent="342" name="category_name">
+    <column id="347" parent="342" name="category_id">
+      <Position>2</Position>
+      <DataType>int(11)|0s</DataType>
+    </column>
+    <column id="348" parent="342" name="user_id">
+      <Position>3</Position>
+      <DataType>int(11)|0s</DataType>
+    </column>
+    <column id="349" parent="342" name="description">
+      <Position>4</Position>
+      <DataType>text|0s</DataType>
+    </column>
+    <index id="350" parent="342" name="category_id">
+      <ColNames>category_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="351" parent="342" name="user_id">
+      <ColNames>user_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="352" parent="342" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>advertisemet_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="353" parent="342" name="advertisement_ibfk_1">
+      <ColNames>category_id</ColNames>
+      <RefTableName>categories</RefTableName>
+      <RefColNames>category_id</RefColNames>
+    </foreign-key>
+    <foreign-key id="354" parent="342" name="advertisement_ibfk_2">
+      <ColNames>user_id</ColNames>
+      <RefTableName>user</RefTableName>
+      <RefColNames>user_id</RefColNames>
+    </foreign-key>
+    <column id="355" parent="343" name="advertisemet_id">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="356" parent="343" name="category_id">
+      <Position>2</Position>
+      <DataType>int(11)|0s</DataType>
+    </column>
+    <column id="357" parent="343" name="user_id">
+      <Position>3</Position>
+      <DataType>int(11)|0s</DataType>
+    </column>
+    <column id="358" parent="343" name="description">
+      <Position>4</Position>
+      <DataType>text|0s</DataType>
+    </column>
+    <index id="359" parent="343" name="category_id">
+      <ColNames>category_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="360" parent="343" name="user_id">
+      <ColNames>user_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="361" parent="343" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>advertisemet_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="362" parent="343" name="advertisements_ibfk_1">
+      <ColNames>category_id</ColNames>
+      <RefTableName>categories</RefTableName>
+      <RefColNames>category_id</RefColNames>
+    </foreign-key>
+    <foreign-key id="363" parent="343" name="advertisements_ibfk_2">
+      <ColNames>user_id</ColNames>
+      <RefTableName>user</RefTableName>
+      <RefColNames>user_id</RefColNames>
+    </foreign-key>
+    <column id="364" parent="344" name="category_id">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="365" parent="344" name="category_name">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <key id="346" parent="342" name="PRIMARY">
+    <key id="366" parent="344" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>category_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="347" parent="343" name="user_id">
+    <column id="367" parent="345" name="user_id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="348" parent="343" name="first_name">
+    <column id="368" parent="345" name="first_name">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <column id="349" parent="343" name="last_name">
+    <column id="369" parent="345" name="last_name">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <key id="350" parent="343" name="PRIMARY">
+    <key id="370" parent="345" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>user_id</ColNames>
       <Primary>1</Primary>

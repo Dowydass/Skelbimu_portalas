@@ -5,18 +5,21 @@ import javax.persistence.*;
 public class Advertisement {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
+    @Column(name = "advertisement_id")
     private int advertisementId;
+    @Column(name = "category_id")
     private int categoryId;
+    @Column(name = "user_id")
     private int userId;
+    @Column(name = "description")
     private String description;
-    private int comment_id;
 
-    public Advertisement(int categoryId, int userId, String description, int comment_id) {
+
+    public Advertisement(int categoryId, int userId, String description ) {
         this.categoryId = categoryId;
         this.userId = userId;
         this.description = description;
-        this.comment_id = comment_id;
+
     }
 
     public int getAdvertisementId() {
@@ -51,11 +54,4 @@ public class Advertisement {
         this.description = description;
     }
 
-    public int getComment_id() {
-        return comment_id;
-    }
-
-    public void setComment_id(int comment_id) {
-        this.comment_id = comment_id;
-    }
-}
+ }

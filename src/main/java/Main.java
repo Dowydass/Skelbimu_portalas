@@ -9,5 +9,11 @@ public class Main {
         CategoriesDAO.createTableCategories();
         Categories categories = new Categories("Fast food");
         CategoriesDAO.createNewCategory(categories);
+        //-------------------------------------created new advertisement with table ---------------------------//
+        AdvertisementDAO.createNewTableAdvertisement();
+        Advertisement advertisement = new Advertisement(1,1,"Sushi");
+        AdvertisementDAO.createNewAdvertisement(advertisement);
+
+
     }
 }
