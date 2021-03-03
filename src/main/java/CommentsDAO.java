@@ -3,20 +3,20 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class AdvertisementDAO {
+public class CommentsDAO {
     private static final String URL = "jdbc:mysql://localhost:3306/skelbimu_portalas";
     private static final String PASS = "";
     private static final String USER = "root";
 
-    public static void createNewTableAdvertisement(){
-        String query = "CREATE TABLE IF NOT EXISTS Advertisements(" +
-                "advertisement_id INT PRIMARY KEY AUTO_INCREMENT," +
-                "category_id INT," +
+    public static void createNewTableComments(){
+        String query = "CREATE TABLE IF NOT EXISTS Comments(" +
+                "comment_id INT PRIMARY KEY AUTO_INCREMENT," +
                 "user_id INT," +
-                "description TEXT," +
-                "FOREIGN KEY (category_id) REFERENCES Categories(category_id)," +
-                "FOREIGN KEY (user_id) REFERENCES User(user_id)" +
-                ")";
+                "advertisement_id INT," +
+                "comment TEXT," +
+                "FOREIGN KEY (user_id) REFERENCES User(user_id)," +
+                "FOREIGN KEY (advertisement_id) REFERENCES Advertisements(advertisement_id))";
+
         try{
             Connection connection = DriverManager.getConnection(URL, USER, PASS);
             PreparedStatement preparedStatement = connection.prepareStatement(query);
@@ -27,24 +27,19 @@ public class AdvertisementDAO {
         }
     }
 
-    public static void createNewAdvertisement(Advertisement advertisement){
-            String query = "INSERT INTO Advertisements(category_id, user_id, description) VALUES (?,?,?)";
+    public static void createNewComment(Comments comments){
+        String query ="INSERT INTO Comments(user_id, advertisement_id, comment) VALUES (?,?,?)";
+
         try{
             Connection connection = DriverManager.getConnection(URL, USER, PASS);
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-
-
-            preparedStatement.setInt(1,advertisement.getCategoryId());
-            preparedStatement.setInt(2,advertisement.getUserId());
-            preparedStatement.setString(3,advertisement.getDescription());
-
+            preparedStatement.setInt(1,comments.getUserId());
+            preparedStatement.setInt(2,comments.getAdvertisementId());
+            preparedStatement.setString(3,comments.getComment());
             preparedStatement.executeUpdate();
-            preparedStatement.close();
-            connection.close();
 
         }catch (SQLException e){
             e.printStackTrace();
         }
-
     }
 }

@@ -9,10 +9,14 @@ public class Main {
         CategoriesDAO.createTableCategories();
         Categories categories = new Categories("Fast food");
         CategoriesDAO.createNewCategory(categories);
-        //-------------------------------------created new advertisement with table ---------------------------//
+        //-------------------------------------created new advertisement with table----------------------------//
         AdvertisementDAO.createNewTableAdvertisement();
         Advertisement advertisement = new Advertisement(1,1,"Sushi");
         AdvertisementDAO.createNewAdvertisement(advertisement);
+        //-------------------------------------created new comment with table----------------------------------//
+        CommentsDAO.createNewTableComments();
+        Comments comments = new Comments(1,1,"Very tasty food");
+        CommentsDAO.createNewComment(comments);
 
 
     }
