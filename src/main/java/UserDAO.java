@@ -55,7 +55,6 @@ public class UserDAO {
 
             preparedStatement.executeUpdate();
 
-
         }catch (SQLException e){
             e.printStackTrace();
         }
