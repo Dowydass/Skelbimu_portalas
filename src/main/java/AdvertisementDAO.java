@@ -47,4 +47,40 @@ public class AdvertisementDAO {
         }
 
     }
+    public static void updateById(int id, String description){
+        String query = "UPDATE Advertisements SET description = ? WHERE advertisement_id = ?";
+
+        try{
+            Connection connection = DriverManager.getConnection(URL, USER, PASS);
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+
+            preparedStatement.setString(1,description);
+            preparedStatement.setInt(2,id);
+
+            preparedStatement.executeUpdate();
+
+
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+
+    }
+
+
+
+
+    public static void deleteAdvertisement(int id){
+            String query = "DELETE FROM Advertisements WHERE Advertisement_id = ?";
+
+        try{
+            Connection connection = DriverManager.getConnection(URL, USER, PASS);
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1,id);
+            preparedStatement.executeUpdate();
+
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+
+    }
 }

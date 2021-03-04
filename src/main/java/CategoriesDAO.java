@@ -40,4 +40,21 @@ public class CategoriesDAO {
             e.printStackTrace();
         }
     }
+    public static void updateCategoryById(int id, String category){
+        String query = "UPDATE Categories SET category_name = ? WHERE category_id = ?";
+
+        try{
+            Connection connection = DriverManager.getConnection(URL, USER, PASS);
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+
+            preparedStatement.setString(1,category);
+            preparedStatement.setInt(2,id);
+
+            preparedStatement.executeUpdate();
+
+
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
 }

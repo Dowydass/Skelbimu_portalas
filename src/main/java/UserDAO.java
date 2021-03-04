@@ -42,4 +42,22 @@ public class UserDAO {
             e.printStackTrace();
         }
     }
+
+    public static void updateUserById(int id, String firstname, String lastname){
+        String query = "UPDATE User SET first_name = ?, last_name = ? WHERE user_id = ?";
+        try{
+            Connection connection = DriverManager.getConnection(URL, USER, PASS);
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+
+            preparedStatement.setString(1,firstname);
+            preparedStatement.setString(2,lastname);
+            preparedStatement.setInt(3,id);
+
+            preparedStatement.executeUpdate();
+
+
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
 }

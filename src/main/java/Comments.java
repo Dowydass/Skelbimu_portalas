@@ -1,5 +1,8 @@
 import javax.persistence.*;
 
+
+
+
 @Entity
 @Table(name = "Comments")
 
@@ -25,6 +28,7 @@ public class Comments {
         return comment_id;
     }
 
+
     public void setComment_id(int comment_id) {
         this.comment_id = comment_id;
     }
@@ -33,6 +37,9 @@ public class Comments {
         return userId;
     }
 
+    /**
+     * @param userId FK to User
+     */
     public void setUserId(int userId) {
         this.userId = userId;
     }
@@ -49,6 +56,9 @@ public class Comments {
         return comment;
     }
 
+    /**
+     * @param comment String comment
+     */
     public void setComment(String comment) {
         this.comment = comment;
     }

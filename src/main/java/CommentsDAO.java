@@ -42,4 +42,21 @@ public class CommentsDAO {
             e.printStackTrace();
         }
     }
+    public static void updateCommentById(int id, String comment){
+        String query = "UPDATE Comments SET comment = ? WHERE comment_id = ?";
+
+        try{
+            Connection connection = DriverManager.getConnection(URL, USER, PASS);
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+
+            preparedStatement.setString(1,comment);
+            preparedStatement.setInt(2,id);
+
+            preparedStatement.executeUpdate();
+
+
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
 }
