@@ -1,5 +1,3 @@
-import java.util.Random;
-
 public class Main {
     public static void main(String[] args){
 
@@ -11,6 +9,10 @@ public class Main {
         CategoriesDAO.updateCategoryById(1,"Fancy food");
         AdvertisementDAO.updateById(1,"Chicken nuggets");
         CommentsDAO.updateCommentById(1,"Food was blank");
+
+        ActionsDAO.selectAdvertisementsById(1);
+        ActionsDAO.selectCommentByAdId(1);
+
 
 
     }

@@ -59,4 +59,20 @@ public class UserDAO {
             e.printStackTrace();
         }
     }
+
+    public static void deleteUser(int id){
+        String query = "DELETE FROM User WHERE user_id = ?";
+
+        try{
+            Connection connection = DriverManager.getConnection(URL, USER, PASS);
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1,id);
+            preparedStatement.executeUpdate();
+
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+
+    }
+
 }
